@@ -1124,10 +1124,12 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.6, 
 
 [node name="XRFaceModifier3D" type="XRFaceModifier3D" parent="Chan"]
 face_tracker = &"/vmc/head"
+target = NodePath("../XRBodyModifier3D/SK_black_cat_fire_12/GeneralSkeleton/Body")
 
 [node name="XRBodyModifier3D" type="XRBodyModifier3D" parent="Chan"]
 body_tracker = &"/vmc/body"
 target = NodePath("SK_black_cat_fire_12/GeneralSkeleton")
+body_update = 3
 
 [node name="GroundRing" type="MeshInstance3D" parent="Chan/XRBodyModifier3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

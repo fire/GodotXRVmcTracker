@@ -104,6 +104,7 @@ _subresources={
 ,
 "retarget/bone_renamer/unique_node/make_unique": false,
 "retarget/bone_renamer/unique_node/skeleton_name": "Skeleton3D",
+"retarget/remove_tracks/unmapped_bones": true,
 "retarget/rest_fixer/fix_silhouette/enable": true,
 "retarget/rest_fixer/fix_silhouette/filter": [&"LeftFoot", &"RightFoot"]
 }

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://demo.gd" id="1_7k4ei"]
 [ext_resource type="Texture2D" uid="uid://drjoya1j38i21" path="res://assets/ambientcg.com/Carpet003_1K-JPG_Color.jpg" id="1_pfl7p"]
-[ext_resource type="PackedScene" uid="uid://cay8oh2ll7yxi" path="res://assets/test_kun/Test-Kun.fbx" id="2_67k0v"]
 [ext_resource type="PackedScene" uid="uid://b5vckpw32eo8v" path="res://assets/test_chan/SK_black_cat_fire_12.vrm" id="3_c8hyk"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider.gd" id="4_st0fh"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider_group.gd" id="5_w0ekn"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_spring_bone.gd" id="6_7kkmu"]
+[ext_resource type="Script" path="res://addons/godot_vmc_tracker/vmc_tracker.gd" id="8_fduqp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cqqj5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -1146,68 +1146,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000263822, 1.42994, -0.016
 collider_groups = Array[ExtResource("5_w0ekn")]([SubResource("Resource_gqlob"), SubResource("Resource_gdy8c"), SubResource("Resource_n8lxp"), SubResource("Resource_gjnxk"), SubResource("Resource_ebx3d"), SubResource("Resource_iix14"), SubResource("Resource_lsx7u"), SubResource("Resource_ugpj6"), SubResource("Resource_kvqse"), SubResource("Resource_t13sx"), SubResource("Resource_teo2g"), SubResource("Resource_pkbe2"), SubResource("Resource_opwvg"), SubResource("Resource_w3pxv"), SubResource("Resource_wl48i")])
 collider_library = Array[ExtResource("4_st0fh")]([SubResource("Resource_wsj51"), SubResource("Resource_h7a08"), SubResource("Resource_ebxfq"), SubResource("Resource_8wl5m"), SubResource("Resource_a2rtn"), SubResource("Resource_nagyj"), SubResource("Resource_16gtc"), SubResource("Resource_pme6a"), SubResource("Resource_cal4q"), SubResource("Resource_5mn0i"), SubResource("Resource_ivxw8"), SubResource("Resource_waqq3"), SubResource("Resource_w5ruv"), SubResource("Resource_1wiou"), SubResource("Resource_tlgcl"), SubResource("Resource_l4xyb"), SubResource("Resource_eepgr"), SubResource("Resource_ghalw"), SubResource("Resource_s04xi"), SubResource("Resource_kgiib"), SubResource("Resource_twx83"), SubResource("Resource_u75u2"), SubResource("Resource_jletx"), SubResource("Resource_6fs7h"), SubResource("Resource_4dxlo"), SubResource("Resource_m0aff"), SubResource("Resource_s275i"), SubResource("Resource_vma3u"), SubResource("Resource_xuta5"), SubResource("Resource_jk3f5"), SubResource("Resource_gg6x7"), SubResource("Resource_obb6q")])
 
-[node name="Kun" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.6, 0, 0)
-visible = false
+[node name="VMCTrackerFingers" type="Node" parent="Chan"]
+script = ExtResource("8_fduqp")
+face_tracker_name = ""
+body_tracker_name = "/vmc/fingers"
+udp_listener_port = 39541
 
-[node name="XRFaceModifier3D" type="XRFaceModifier3D" parent="Kun"]
-face_tracker = &"/vmc/head"
-target = NodePath("../XRBodyModifier3D/Test-Kun/Armature/Skeleton3D/Body")
-
-[node name="XRBodyModifier3D" type="XRBodyModifier3D" parent="Kun"]
-body_tracker = &"/vmc/body"
-target = NodePath("Test-Kun/Armature/Skeleton3D")
-
-[node name="Test-Kun" parent="Kun/XRBodyModifier3D" instance=ExtResource("2_67k0v")]
-unique_name_in_owner = true
-
-[node name="Body" parent="Kun/XRBodyModifier3D/Test-Kun/Armature/Skeleton3D" index="0"]
-blend_shapes/Cheek_Puff_Left = 1.28996e-05
-blend_shapes/Cheek_Puff_Right = 1.28996e-05
-blend_shapes/Eye_Left_Left = 0.297788
-blend_shapes/Eye_Left_Right = 0.0393999
-blend_shapes/Eye_Left_Wide = 0.0133242
-blend_shapes/Eye_Right_Blink = 0.00013511
-blend_shapes/Eye_Right_Left = 0.275447
-blend_shapes/Eye_Right_Right = 0.0277578
-blend_shapes/Eye_Right_Wide = 0.00428797
-blend_shapes/Jaw_Forward = 0.000153695
-blend_shapes/Jaw_Left = 0.00336811
-blend_shapes/Jaw_Open = 0.00751231
-blend_shapes/Jaw_Right = 2.27399e-05
-blend_shapes/Mouth_Ape_Shape = 0.00011435
-blend_shapes/Mouth_Lower_DownLeft = 0.000834321
-blend_shapes/Mouth_Lower_DownRight = 0.000420048
-blend_shapes/Mouth_Lower_Overturn = 0.000739455
-blend_shapes/Mouth_Smile_Left = 0.00125522
-blend_shapes/Mouth_Smile_Right = 0.0023025
-blend_shapes/Mouth_Upper_Overturn = 0.000739455
-blend_shapes/Mouth_Upper_UpLeft = 0.000106642
-blend_shapes/Mouth_Upper_UpRight = 0.000192762
-blend_shapes/browDownLeft = 0.15347
-blend_shapes/browDownRight = 0.309234
-blend_shapes/browOuterUpLeft = 0.0348048
-blend_shapes/browOuterUpRight = 0.00225858
-blend_shapes/eyeLookDownLeft = 0.109839
-blend_shapes/eyeLookDownRight = 0.116176
-blend_shapes/eyeLookUpLeft = 0.109527
-blend_shapes/eyeLookUpRight = 0.105932
-blend_shapes/eyeSquintLeft = 0.0409867
-blend_shapes/eyeSquintRight = 0.437591
-blend_shapes/mouthDimpleLeft = 0.00314422
-blend_shapes/mouthDimpleRight = 0.00836317
-blend_shapes/mouthFrownLeft = 0.00134124
-blend_shapes/mouthFrownRight = 0.00104317
-blend_shapes/mouthFunnel = 0.000739455
-blend_shapes/mouthPressLeft = 0.00762485
-blend_shapes/mouthPressRight = 0.0310566
-blend_shapes/mouthStretchLeft = 0.0145674
-blend_shapes/mouthStretchRight = 0.00253638
-
-[node name="GroundRing" type="MeshInstance3D" parent="Kun/XRBodyModifier3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-mesh = SubResource("TorusMesh_rbtmk")
-skeleton = NodePath("")
+[node name="XRBodyModifier3DFingers" type="XRBodyModifier3D" parent="Chan"]
+body_tracker = &"/vmc/fingers"
+target = NodePath("../XRBodyModifier3D/SK_black_cat_fire_12/GeneralSkeleton")
+body_update = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 3
@@ -1278,4 +1226,3 @@ value = 1.0
 [connection signal="value_changed" from="PanelContainer/MarginContainer/HBoxContainer/GridContainer/WorldSpinBox" to="." method="_on_world_spin_box_value_changed"]
 
 [editable path="Chan/XRBodyModifier3D/SK_black_cat_fire_12"]
-[editable path="Kun/XRBodyModifier3D/Test-Kun"]
